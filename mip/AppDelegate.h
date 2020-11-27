@@ -10,11 +10,10 @@
 #import "mipMouseShadow.h"
 #import "mipDriver.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, mipDriverDelegate> {
     mipDriver *driver;
+    NSColor *color;
 }
-
-@property (weak) IBOutlet mipMouseShadow *mouseShadow;
 
 @end
 

@@ -9,20 +9,19 @@
 #import "AppDelegate.h"
 #import "mipColorPicker.h"
 #import "mipColorPickerColorControl.h"
+#import "mipConnectedBadge.h"
 
 @interface AppDelegate ()
-
+@property (weak) IBOutlet mipMouseShadow *mouseShadow;
+@property (weak) IBOutlet mipConnectedBadge *connectedBadge;
 @property (weak) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    /*[self.window.contentView setWantsLayer:YES];
-    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
-    self.window.titlebarAppearsTransparent = true;
-    [self.window invalidateShadow];*/
     driver = [[mipDriver alloc] init];
+    [driver setDelegate:self];
 }
 
 
@@ -42,15 +41,23 @@
     [entryPopover showRelativeToRect:entryRect ofView:[[NSApp mainWindow] contentView] preferredEdge:NSMinYEdge];
 }
 
-- (IBAction)clickSetLaunchAtStartup:(NSButton *)sender {
-    NSLog(@"TODO");
+- (IBAction)changeColor:(mipColorPickerColorControl*)colorControl {
+    color = [colorControl color];
+    [self.mouseShadow setShadowColor:color];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateDriver) object:nil];
+    [self performSelector:@selector(updateDriver) withObject:nil afterDelay:0.01];
 }
 
-- (IBAction)changeColor:(mipColorPickerColorControl*)colorControl {
-    //NSLog(@"aaa");
-    NSColor *color = [colorControl color];
-    [_mouseShadow setShadowColor:color];
+- (void)updateDriver {
     [driver setColor:color];
+}
+
+- (void)deviceConnected {
+    [self.connectedBadge setEnabled:true];
+}
+
+- (void)deviceDisconnected {
+    [self.connectedBadge setEnabled:false];
 }
 
 @end

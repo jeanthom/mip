@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="connectedBadge" destination="oaN-CI-Z60" id="x3J-Fh-Rj3"/>
                 <outlet property="mouseShadow" destination="s4U-LM-puc" id="iHt-9B-RaB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -127,17 +128,10 @@
                             <action selector="clickChangeLEDColor:" target="Voe-Tx-rLC" id="BxW-qw-84m"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmI-yu-qvd">
-                        <rect key="frame" x="18" y="18" width="155" height="18"/>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oaN-CI-Z60" customClass="mipConnectedBadge">
+                        <rect key="frame" x="270" y="17" width="73" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Launch mip at startup" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tN1-yD-PIj">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clickSetLaunchAtStartup:" target="Voe-Tx-rLC" id="ufF-FP-6om"/>
-                        </connections>
-                    </button>
+                    </customView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="680.5" y="314"/>
