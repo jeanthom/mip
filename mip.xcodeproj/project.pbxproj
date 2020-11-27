@@ -18,6 +18,7 @@
 		915BC34C25703D5100508CC3 /* mipMouseShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34B25703D5100508CC3 /* mipMouseShadow.m */; };
 		915BC356257069EF00508CC3 /* mipDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC355257069EF00508CC3 /* mipDriver.m */; };
 		915BC35825707CCE00508CC3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 915BC35725707CCE00508CC3 /* .gitignore */; };
+		915BC35B2570FD6B00508CC3 /* mipConnectedBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		915BC354257069EF00508CC3 /* mipDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipDriver.h; sourceTree = "<group>"; };
 		915BC355257069EF00508CC3 /* mipDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipDriver.m; sourceTree = "<group>"; };
 		915BC35725707CCE00508CC3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		915BC3592570FD6B00508CC3 /* mipConnectedBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipConnectedBadge.h; sourceTree = "<group>"; };
+		915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipConnectedBadge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				915BC34B25703D5100508CC3 /* mipMouseShadow.m */,
 				915BC354257069EF00508CC3 /* mipDriver.h */,
 				915BC355257069EF00508CC3 /* mipDriver.m */,
+				915BC3592570FD6B00508CC3 /* mipConnectedBadge.h */,
+				915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */,
 			);
 			path = mip;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			files = (
 				915BC338257007FA00508CC3 /* main.m in Sources */,
 				915BC34425701DCC00508CC3 /* mipColorPicker.m in Sources */,
+				915BC35B2570FD6B00508CC3 /* mipConnectedBadge.m in Sources */,
 				915BC356257069EF00508CC3 /* mipDriver.m in Sources */,
 				915BC34825701FAA00508CC3 /* mipColorPickerColorControl.m in Sources */,
 				915BC34C25703D5100508CC3 /* mipMouseShadow.m in Sources */,
