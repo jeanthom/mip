@@ -19,6 +19,8 @@
 		915BC356257069EF00508CC3 /* mipDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC355257069EF00508CC3 /* mipDriver.m */; };
 		915BC35825707CCE00508CC3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 915BC35725707CCE00508CC3 /* .gitignore */; };
 		915BC35B2570FD6B00508CC3 /* mipConnectedBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */; };
+		915BC3622571A5B300508CC3 /* mip-palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 915BC3612571A5B300508CC3 /* mip-palette.png */; };
+		915BC3642571A68F00508CC3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 915BC3632571A68F00508CC3 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		915BC35725707CCE00508CC3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		915BC3592570FD6B00508CC3 /* mipConnectedBadge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipConnectedBadge.h; sourceTree = "<group>"; };
 		915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipConnectedBadge.m; sourceTree = "<group>"; };
+		915BC3612571A5B300508CC3 /* mip-palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mip-palette.png"; sourceTree = "<group>"; };
+		915BC3632571A68F00508CC3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		915BC322257007F800508CC3 = {
 			isa = PBXGroup;
 			children = (
+				915BC3632571A68F00508CC3 /* LICENSE */,
+				915BC35C2571A4EB00508CC3 /* doc */,
 				915BC35725707CCE00508CC3 /* .gitignore */,
 				915BC34925702E9800508CC3 /* README.md */,
 				915BC32D257007F800508CC3 /* mip */,
@@ -99,6 +105,14 @@
 				915BC35A2570FD6B00508CC3 /* mipConnectedBadge.m */,
 			);
 			path = mip;
+			sourceTree = "<group>";
+		};
+		915BC35C2571A4EB00508CC3 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				915BC3612571A5B300508CC3 /* mip-palette.png */,
+			);
+			path = doc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +173,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				915BC35825707CCE00508CC3 /* .gitignore in Resources */,
+				915BC3622571A5B300508CC3 /* mip-palette.png in Resources */,
 				915BC332257007F900508CC3 /* Assets.xcassets in Resources */,
+				915BC3642571A68F00508CC3 /* LICENSE in Resources */,
 				915BC335257007FA00508CC3 /* MainMenu.xib in Resources */,
 				915BC34525701DCC00508CC3 /* mipColorPicker.xib in Resources */,
 				915BC3402570125500508CC3 /* intellimouse.png in Resources */,
