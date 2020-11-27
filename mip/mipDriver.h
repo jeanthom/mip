@@ -21,13 +21,12 @@
 
 @interface mipDriver : NSObject {
     IOHIDManagerRef managerRef;
-    IOHIDDeviceRef mouseDeviceRef;
+    NSMutableArray *deviceRefs;
 }
 
 @property (weak) id <mipDriverDelegate> delegate;
 
 - (id)init;
-- (NSColor*)color;
 - (BOOL)setColor:(NSColor*)color;
 
 - (void)handleMatchingDevice:(IOHIDDeviceRef)device sender:(void *)sender result:(IOReturn)result;
