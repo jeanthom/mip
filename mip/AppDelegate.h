@@ -7,9 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "mipMouseShadow.h"
+#import "mipDriver.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    mipDriver *driver;
+}
 
+@property (weak) IBOutlet mipMouseShadow *mouseShadow;
 
 @end
 

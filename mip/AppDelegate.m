@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "mipColorPicker.h"
+#import "mipColorPickerColorControl.h"
 
 @interface AppDelegate ()
 
@@ -16,13 +18,39 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    /*[self.window.contentView setWantsLayer:YES];
+    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
+    self.window.titlebarAppearsTransparent = true;
+    [self.window invalidateShadow];*/
+    driver = [[mipDriver alloc] init];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+    
 }
 
+- (IBAction)clickChangeLEDColor:(NSButton*)sender {
+    // Create mipColorPicker popover
+    mipColorPicker *viewController = [[mipColorPicker alloc] init];
+    NSPopover *entryPopover = [[NSPopover alloc] init];
+    [entryPopover setContentSize:NSMakeSize(200.0, 200.0)];
+    [entryPopover setBehavior:NSPopoverBehaviorTransient];
+    [entryPopover setAnimates:YES];
+    [entryPopover setContentViewController:viewController];
+    NSRect entryRect = [sender convertRect:sender.bounds toView:[[NSApp mainWindow] contentView]];
+    [entryPopover showRelativeToRect:entryRect ofView:[[NSApp mainWindow] contentView] preferredEdge:NSMinYEdge];
+}
+
+- (IBAction)clickSetLaunchAtStartup:(NSButton *)sender {
+    NSLog(@"TODO");
+}
+
+- (IBAction)changeColor:(mipColorPickerColorControl*)colorControl {
+    //NSLog(@"aaa");
+    NSColor *color = [colorControl color];
+    [_mouseShadow setShadowColor:color];
+    [driver setColor:color];
+}
 
 @end

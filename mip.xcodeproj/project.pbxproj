@@ -11,6 +11,12 @@
 		915BC332257007F900508CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915BC331257007F900508CC3 /* Assets.xcassets */; };
 		915BC335257007FA00508CC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 915BC333257007FA00508CC3 /* MainMenu.xib */; };
 		915BC338257007FA00508CC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC337257007FA00508CC3 /* main.m */; };
+		915BC3402570125500508CC3 /* intellimouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 915BC33F2570125500508CC3 /* intellimouse.png */; };
+		915BC34425701DCC00508CC3 /* mipColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34225701DCC00508CC3 /* mipColorPicker.m */; };
+		915BC34525701DCC00508CC3 /* mipColorPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 915BC34325701DCC00508CC3 /* mipColorPicker.xib */; };
+		915BC34825701FAA00508CC3 /* mipColorPickerColorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34725701FAA00508CC3 /* mipColorPickerColorControl.m */; };
+		915BC34C25703D5100508CC3 /* mipMouseShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34B25703D5100508CC3 /* mipMouseShadow.m */; };
+		915BC356257069EF00508CC3 /* mipDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC355257069EF00508CC3 /* mipDriver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,17 @@
 		915BC336257007FA00508CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		915BC337257007FA00508CC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		915BC339257007FA00508CC3 /* mip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mip.entitlements; sourceTree = "<group>"; };
+		915BC33F2570125500508CC3 /* intellimouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intellimouse.png; sourceTree = "<group>"; };
+		915BC34125701DCC00508CC3 /* mipColorPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipColorPicker.h; sourceTree = "<group>"; };
+		915BC34225701DCC00508CC3 /* mipColorPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipColorPicker.m; sourceTree = "<group>"; };
+		915BC34325701DCC00508CC3 /* mipColorPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mipColorPicker.xib; sourceTree = "<group>"; };
+		915BC34625701FAA00508CC3 /* mipColorPickerColorControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipColorPickerColorControl.h; sourceTree = "<group>"; };
+		915BC34725701FAA00508CC3 /* mipColorPickerColorControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipColorPickerColorControl.m; sourceTree = "<group>"; };
+		915BC34925702E9800508CC3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		915BC34A25703D5100508CC3 /* mipMouseShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipMouseShadow.h; sourceTree = "<group>"; };
+		915BC34B25703D5100508CC3 /* mipMouseShadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipMouseShadow.m; sourceTree = "<group>"; };
+		915BC354257069EF00508CC3 /* mipDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipDriver.h; sourceTree = "<group>"; };
+		915BC355257069EF00508CC3 /* mipDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipDriver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +55,7 @@
 		915BC322257007F800508CC3 = {
 			isa = PBXGroup;
 			children = (
+				915BC34925702E9800508CC3 /* README.md */,
 				915BC32D257007F800508CC3 /* mip */,
 				915BC32C257007F800508CC3 /* Products */,
 			);
@@ -54,6 +72,10 @@
 		915BC32D257007F800508CC3 /* mip */ = {
 			isa = PBXGroup;
 			children = (
+				915BC34125701DCC00508CC3 /* mipColorPicker.h */,
+				915BC34225701DCC00508CC3 /* mipColorPicker.m */,
+				915BC34325701DCC00508CC3 /* mipColorPicker.xib */,
+				915BC33F2570125500508CC3 /* intellimouse.png */,
 				915BC32E257007F800508CC3 /* AppDelegate.h */,
 				915BC32F257007F800508CC3 /* AppDelegate.m */,
 				915BC331257007F900508CC3 /* Assets.xcassets */,
@@ -61,6 +83,12 @@
 				915BC336257007FA00508CC3 /* Info.plist */,
 				915BC337257007FA00508CC3 /* main.m */,
 				915BC339257007FA00508CC3 /* mip.entitlements */,
+				915BC34625701FAA00508CC3 /* mipColorPickerColorControl.h */,
+				915BC34725701FAA00508CC3 /* mipColorPickerColorControl.m */,
+				915BC34A25703D5100508CC3 /* mipMouseShadow.h */,
+				915BC34B25703D5100508CC3 /* mipMouseShadow.m */,
+				915BC354257069EF00508CC3 /* mipDriver.h */,
+				915BC355257069EF00508CC3 /* mipDriver.m */,
 			);
 			path = mip;
 			sourceTree = "<group>";
@@ -124,6 +152,8 @@
 			files = (
 				915BC332257007F900508CC3 /* Assets.xcassets in Resources */,
 				915BC335257007FA00508CC3 /* MainMenu.xib in Resources */,
+				915BC34525701DCC00508CC3 /* mipColorPicker.xib in Resources */,
+				915BC3402570125500508CC3 /* intellimouse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				915BC338257007FA00508CC3 /* main.m in Sources */,
+				915BC34425701DCC00508CC3 /* mipColorPicker.m in Sources */,
+				915BC356257069EF00508CC3 /* mipDriver.m in Sources */,
+				915BC34825701FAA00508CC3 /* mipColorPickerColorControl.m in Sources */,
+				915BC34C25703D5100508CC3 /* mipMouseShadow.m in Sources */,
 				915BC330257007F800508CC3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
