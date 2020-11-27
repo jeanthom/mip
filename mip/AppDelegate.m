@@ -44,8 +44,10 @@
 - (IBAction)changeColor:(mipColorPickerColorControl*)colorControl {
     color = [colorControl color];
     [self.mouseShadow setShadowColor:color];
+    
+    // Throttling driver requests
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateDriver) object:nil];
-    [self performSelector:@selector(updateDriver) withObject:nil afterDelay:0.01];
+    [self performSelector:@selector(updateDriver) withObject:nil afterDelay:0.005];
 }
 
 - (void)updateDriver {
@@ -53,6 +55,7 @@
 }
 
 - (void)deviceConnected {
+    NSLog(@"New mouse detected");
     [self.connectedBadge setEnabled:true];
 }
 
