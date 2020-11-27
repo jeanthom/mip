@@ -14,14 +14,23 @@
 #include <IOKit/IOMessage.h>
 #include <IOKit/IOCFPlugIn.h>
 
+@protocol mipDriverDelegate
+- (void)deviceConnected;
+- (void)deviceDisconnected;
+@end
+
 @interface mipDriver : NSObject {
     IOHIDManagerRef managerRef;
     IOHIDDeviceRef mouseDeviceRef;
 }
 
+@property (weak) id <mipDriverDelegate> delegate;
+
 - (id)init;
+- (NSColor*)color;
 - (BOOL)setColor:(NSColor*)color;
 
 - (void)handleMatchingDevice:(IOHIDDeviceRef)device sender:(void *)sender result:(IOReturn)result;
+- (void)handleDeviceRemoval:(IOHIDDeviceRef)device sender:(void *)sender result:(IOReturn)result;
 
 @end

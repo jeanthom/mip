@@ -20,6 +20,14 @@ static void mipMatchingCallback(void *context,
     [driver handleMatchingDevice:deviceRef sender:sender result:result];
 }
 
+static void mipRemovalCallback(void *context,
+                               IOReturn result,
+                               void *sender,
+                               IOHIDDeviceRef deviceRef) {
+    mipDriver *const driver = (__bridge mipDriver *const)context;
+    [driver handleDeviceRemoval:deviceRef sender:sender result:result];
+}
+
 @implementation mipDriver
 
 - (id)init {
@@ -37,6 +45,9 @@ static void mipMatchingCallback(void *context,
         IOHIDManagerRegisterDeviceMatchingCallback(managerRef,
                                                    &mipMatchingCallback,
                                                    (void*)self);
+        IOHIDManagerRegisterDeviceRemovalCallback(managerRef,
+                                                  &mipRemovalCallback,
+                                                  (void*)self);
         
         IOHIDManagerScheduleWithRunLoop(managerRef, CFRunLoopGetCurrent(), kCFRunLoopCommonModes);
         IOReturn err = IOHIDManagerOpen(managerRef, kIOHIDOptionsTypeNone);
@@ -62,8 +73,18 @@ static void mipMatchingCallback(void *context,
     return false;
 }
 
+- (NSColor*)color {
+    return [NSColor redColor];
+}
+
 - (void)handleMatchingDevice:(IOHIDDeviceRef)device sender:(void *)sender result:(IOReturn)result {
     mouseDeviceRef = device;
+    [self.delegate deviceConnected];
+}
+
+- (void)handleDeviceRemoval:(IOHIDDeviceRef)device sender:(void *)sender result:(IOReturn)result {
+    mouseDeviceRef = NULL;
+    [self.delegate deviceDisconnected];
 }
 
 @end
