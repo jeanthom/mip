@@ -12,7 +12,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super initWithCoder:decoder]) {
-        shadowColor = [NSColor redColor];
+        shadowColor = [NSColor blackColor];
     }
     return self;
 }
