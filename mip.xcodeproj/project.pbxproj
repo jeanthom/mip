@@ -17,6 +17,7 @@
 		915BC34825701FAA00508CC3 /* mipColorPickerColorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34725701FAA00508CC3 /* mipColorPickerColorControl.m */; };
 		915BC34C25703D5100508CC3 /* mipMouseShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC34B25703D5100508CC3 /* mipMouseShadow.m */; };
 		915BC356257069EF00508CC3 /* mipDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 915BC355257069EF00508CC3 /* mipDriver.m */; };
+		915BC35825707CCE00508CC3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 915BC35725707CCE00508CC3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		915BC34B25703D5100508CC3 /* mipMouseShadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipMouseShadow.m; sourceTree = "<group>"; };
 		915BC354257069EF00508CC3 /* mipDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mipDriver.h; sourceTree = "<group>"; };
 		915BC355257069EF00508CC3 /* mipDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mipDriver.m; sourceTree = "<group>"; };
+		915BC35725707CCE00508CC3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		915BC322257007F800508CC3 = {
 			isa = PBXGroup;
 			children = (
+				915BC35725707CCE00508CC3 /* .gitignore */,
 				915BC34925702E9800508CC3 /* README.md */,
 				915BC32D257007F800508CC3 /* mip */,
 				915BC32C257007F800508CC3 /* Products */,
@@ -150,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915BC35825707CCE00508CC3 /* .gitignore in Resources */,
 				915BC332257007F900508CC3 /* Assets.xcassets in Resources */,
 				915BC335257007FA00508CC3 /* MainMenu.xib in Resources */,
 				915BC34525701DCC00508CC3 /* mipColorPicker.xib in Resources */,
