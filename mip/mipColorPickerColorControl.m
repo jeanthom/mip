@@ -15,9 +15,16 @@
 }
 
 + (NSColor*)colorWithPoint:(NSPoint)point bounds:(NSRect)bounds {
-    CGFloat hue = (point.x-bounds.origin.x)/bounds.size.width;
-    CGFloat saturation = 1.0f;
-    CGFloat brightness = (point.y-bounds.origin.y)/bounds.size.height;
+    CGFloat hue = (point.x-bounds.origin.x)/(bounds.size.width*1.15);
+    CGFloat saturation;
+    CGFloat brightness;
+    if ((point.y-bounds.origin.y)/bounds.size.height > 0.5) {
+        saturation = 1.0-((point.y-bounds.origin.y)/bounds.size.height - 0.5)*2.0;
+        brightness = 1.0;
+    } else {
+        saturation = 1.0;
+        brightness = (point.y-bounds.origin.y)/bounds.size.height*2.0;
+    }
     
     return [NSColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1.0f];
 }
@@ -62,14 +69,21 @@
     for (CGFloat i = 0.0f; i <= 1.0f; i += 0.1f) {
         [colors addObject:[NSColor colorWithHue:i saturation:1.0f brightness:1.0f alpha:1.0f]];
     }
-    NSMutableArray *saturation = [[NSMutableArray alloc] init];
-    [saturation addObject:[NSColor blackColor]];
-    [saturation addObject:[NSColor colorWithHue:0.0f saturation:0.0f brightness:1.0f alpha:0.0f]];
-    [saturation addObject:[NSColor whiteColor]];
     NSGradient *colorGradient = [[NSGradient alloc] initWithColors:colors];
-    NSGradient *grayscaleGradient = [[NSGradient alloc] initWithColors:saturation];
+    NSGradient *blackGradient = [[NSGradient alloc] initWithColors:@[
+        [NSColor blackColor],
+        [NSColor colorWithHue:0.0f saturation:0.0f brightness:0.0f alpha:0.0f]
+    ]];
+    NSGradient *whiteGradient = [[NSGradient alloc] initWithColors:@[
+        [NSColor colorWithHue:0.0f saturation:0.0f brightness:1.0f alpha:0.0f],
+        [NSColor colorWithHue:0.0f saturation:0.0f brightness:1.0f alpha:1.0f]
+    ]];
     [colorGradient drawInRect:dirtyRect angle:0.0f];
-    [grayscaleGradient drawInRect:dirtyRect angle:90.0f];
+    NSRect grayscaleGradientRect = dirtyRect;
+    grayscaleGradientRect.size.height /= 2;
+    [blackGradient drawInRect:grayscaleGradientRect angle:90.0f];
+    grayscaleGradientRect.origin.y += grayscaleGradientRect.size.height;
+    [whiteGradient drawInRect:grayscaleGradientRect angle:90.0f];
     
     [[NSColor lightGrayColor] setStroke];
     NSBezierPath *borderPath = [NSBezierPath bezierPathWithRect:dirtyRect];
@@ -110,7 +124,7 @@
 }
 
 - (NSColor*)color {
-    return [mipColorPickerColorControl colorWithPoint:colorPoint bounds: [self bounds]];
+    return [mipColorPickerColorControl colorWithPoint:colorPoint bounds: [self paletteBounds]];
 }
 
 - (NSRect)paletteBounds {
