@@ -23,18 +23,37 @@
 }
 
 - (void)setColor:(NSColor*)color {
-    colorPoint = [mipColorPickerColorControl pointWithNSColor:color bounds:[self bounds]];
+    colorPoint = [mipColorPickerColorControl pointWithNSColor:color bounds:[self paletteBounds]];
+    [self setNeedsDisplay:YES];
+}
+
++ (NSPoint)boundPoint:(NSPoint)point WithinRect:(NSRect)rect {
+    if (point.x < rect.origin.x) {
+        point.x = rect.origin.x;
+    }
+    if (point.x >= rect.origin.x+rect.size.height) {
+        point.x = rect.origin.x+rect.size.height;
+    }
+    if (point.y < rect.origin.y) {
+        point.y = rect.origin.y;
+    }
+    if (point.y >= rect.origin.y+rect.size.width) {
+        point.y = rect.origin.y+rect.size.width;
+    }
+    return point;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super initWithCoder: decoder]) {
-        colorPoint = NSMakePoint(0, 0);
+        NSRect bounds = [self paletteBounds];
+        colorPoint.x = bounds.origin.x + bounds.size.width/2;
+        colorPoint.y = bounds.origin.y + bounds.size.height/2;
     }
     return self;
 }
 
 - (void)drawRect:(NSRect)viewRect {
-    NSRect dirtyRect = NSInsetRect(viewRect, 10, 10);
+    NSRect dirtyRect = [self paletteBounds];
     NSGraphicsContext* gc = [NSGraphicsContext currentContext];
     [gc saveGraphicsState];
     
@@ -51,6 +70,11 @@
     NSGradient *grayscaleGradient = [[NSGradient alloc] initWithColors:saturation];
     [colorGradient drawInRect:dirtyRect angle:0.0f];
     [grayscaleGradient drawInRect:dirtyRect angle:90.0f];
+    
+    [[NSColor lightGrayColor] setStroke];
+    NSBezierPath *borderPath = [NSBezierPath bezierPathWithRect:dirtyRect];
+    [borderPath setLineWidth:0.5];
+    [borderPath stroke];
     
     // Enable shadow for the selection circle
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -79,15 +103,18 @@
 
 - (void)mouseDragged:(NSEvent *)event {
     NSPoint curPoint = [self convertPoint:[event locationInWindow] fromView:nil];
-    NSRect bounds = [self bounds];
-    if (NSPointInRect(curPoint, NSInsetRect(bounds, 10, 10))) {
-        colorPoint = curPoint;
-        [self setNeedsDisplay:YES];
-        [NSApp sendAction:self.action to:self.target from:self];
-    }
+    curPoint = [mipColorPickerColorControl boundPoint:curPoint WithinRect:[self paletteBounds]];
+    colorPoint = curPoint;
+    [self setNeedsDisplay:YES];
+    [NSApp sendAction:self.action to:self.target from:self];
 }
 
 - (NSColor*)color {
     return [mipColorPickerColorControl colorWithPoint:colorPoint bounds: [self bounds]];
 }
+
+- (NSRect)paletteBounds {
+    return NSInsetRect([self bounds], 10, 10);
+}
+
 @end
